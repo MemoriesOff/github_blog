@@ -29,11 +29,12 @@ function share(){
 }
 
 
-function disqus(){
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = '{{site.disqus_shortname}}';
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    document.getElementsByTagName("script")[0].parentNode.appendChild(dsq);
-}
+var duoshuoQuery = {short_name:"acgtrip"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
