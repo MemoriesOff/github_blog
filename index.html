@@ -151,6 +151,11 @@ styles: [article-list.css]
         <section class="category-slice" post-cate="All">
           {% for post in paginator.posts %}
             <article>
+            	<br>
+		<br>
+		<br>
+		<br>
+		<br>
                 <header>
                     <a href="{{ site.baseurl | prepend: site.url  }}/archive/#{{ post.date | date: '%Y-%m-%d' }}"><span class="octicon octicon-calendar"></span>&nbsp;<span>{{ post.date | date: "%Y-%m-%d" }}</span></a>
                 </header>
