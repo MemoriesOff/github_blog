@@ -45,6 +45,10 @@ styles: [article-list.css]
                         position: fixed;
 		        width: 100%;
                         height: 100%;
+                        -webkit-filter: blur(5px); /* Chrome, Opera */
+                        -moz-filter: blur(5px);
+                        -ms-filter: blur(5px);   
+                         filter: blur(4px);   
 		}
 	    .rectangle .container
 		{
@@ -52,7 +56,7 @@ styles: [article-list.css]
 		}
 		article .module
 		{
-		    background:rgba(255,255,255,0.9);
+		    background:rgba(255,255,255,0.8);
 		}
 		.col-lg-offset-1_5 div
 		{
