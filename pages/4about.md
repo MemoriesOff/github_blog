@@ -15,10 +15,25 @@ isNavItem: true
   还有，努力是一个非常愉快的过程。顽张って！
 # 关于本站
   这个博客嘛,主要写写*技术博客*与*acg相关的评论*,偶尔写点别的也请诸位不要介意.<br />
-  || 2015.10 || 利用十一期间的时间,在[RainyNight](http://blog.rainyalley.com/)的模板之上略加改造,形成了这个网站  ||
-  || 2015.6 || 研究github 了解到github page,想用此建站  ||
-  || 2014.10-2014.12 ||研究些WordPress,无奈后来时间有限不了了之 ||
-  || 2014.9 ||受隔壁寝室某大神影响,注册了这个域名\(该大神的本子站[绅士仓库](http://galacg.me/ )\) ||
+  <table>
+  <tbody>
+    <tr>
+      <td>2015.10 </td>
+      <td align="left">利用十一期间的时间,在[RainyNight](http://blog.rainyalley.com/)的模板之上略加改造,形成了这个网站</td>
+    </tr>
+    <tr>
+      <td>2015.6 </td>
+      <td align="left">研究github 了解到github page,想用此建站</td>
+    </tr>
+    <tr>
+      <td>2014.10-2014.12</td>
+      <td align="left">研究些WordPress,无奈后来时间有限不了了之</td>
+    </tr>
+    <tr>
+      <td>2014.9</td>
+      <td align="left">受隔壁寝室某大神影响,注册了这个域名\(该大神的本子站[绅士仓库](http://galacg.me/ )</td>
+    </tr>
+  </tbody>
 # 联系我
   +邮箱:[admin@acgtrip.com](mailto:admin@acgtrip.com)
   +github:[MemoriesOff](https://github.com/MemoriesOff)
