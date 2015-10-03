@@ -35,7 +35,7 @@ scripts: [toc.js,post.js]
         </div>
         <div class="pad-min"></div>
         <div id="post-comment" class="sheet post">
-            <div id="disqus_thread"></div>
+            <div class="ds-thread" {% if page.id %}data-thread-key="{{ page.id }}"{% endif %}  data-title="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}"></div>
         </div>
     </div>
     <div class="content-navigation col-lg-3">
