@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 智能车黑线提取算法
-tags: 飞思卡尔智能车竞赛 摄像头组 赛道 提取 算法
+tags: 摄像头组 赛道 提取 算法
 categories: 飞思卡尔智能车竞赛
 ---
 
