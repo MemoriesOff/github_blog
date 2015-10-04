@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: About
 permalink: /about/
 icon: octicon-heart
@@ -36,7 +36,7 @@ isNavItem: true
     </tr>
     <tr>
       <td>2014.9</td>
-      <td align="left">受隔壁寝室某大神影响,注册了这个域名\(该大神的本子站[绅士仓库](http://galacg.me/ )</td>
+      <td align="left">受隔壁寝室某大神影响,注册了这个域名\(该大神的本子站[绅士仓库](http://galacg.me/ )\)</td>
     </tr>
   </tbody>
   </table>
