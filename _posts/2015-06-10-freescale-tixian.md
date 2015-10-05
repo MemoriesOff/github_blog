@@ -4,6 +4,7 @@ title: 智能车黑线提取算法
 tags: 摄像头组 赛道提取 
 categories: 飞思卡尔智能车竞赛
 ---
+<div class="toc"></div>
 这是一篇针对**单行**的简单的黑线提取的文件。
 #原始数据介绍
 使用的OV7920摄像头通过DMA向单片机传输每个象素点的灰度值(0-255),为处理方便,一般以行列定义二维数组来处理.摄像头的对比度,分辨率等可以通过改变摄像头的参数来设置,这里采用常见的30*140
@@ -31,13 +32,13 @@ FAV=sum/140;
 ```c
 for(temp0=centre_lastblack;temp0>5;temp0--)               //检测左侧边沿
 {
-  if(point[temp0]〉FAV)
+  if(point[temp0]>FAV)
   {
-      continue；
+      continue;
   }
   for(temp1=temp0; temp1>( temp0-LINEWITH );temp1--)      //确认该点附近的黑点数是否满足要求
   {    
-      if（point[temp1]<FAV）
+      if(point[temp1]<FAV)
           leftcount++;
   }    
   if(leftcount >= LINEWITH-DEVIATION )                        //判断是否满足边沿条件
