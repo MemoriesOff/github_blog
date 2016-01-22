@@ -14,16 +14,17 @@ template <typename T>
 ```
 
 其成员函数有:
-+(constructor) 类的构造函数
-+(destructor)  类的析构函数
-+pointer address(reference x) const  传入该类型引用,返回地址(指针)
-+const_pointer address(const_reference x) const 上述函数的常量版本
-+pointer allocate(size_type num, const_pointer hint=0) 分配用以存储n个实例化类型T的空间
-+void deallocate(pointer p,size_type n) 归还先前配置的空间
-+void construct(pointer p, const_reference val) 构造函数 将p构造成t类型,并赋初值val
-+void destroy(pointer p) 析构p
-+max_size() 返回可配置的最大量
-+template <typename U>struct rebine 以相同方法分配U类型
+
+* (constructor) 类的构造函数
+* (destructor)  类的析构函数
+* pointer address(reference x) const  传入该类型引用,返回地址(指针)
++ const_pointer address(const_reference x) const 上述函数的常量版本
++ pointer allocate(size_type num, const_pointer hint=0) 分配用以存储n个实例化类型T的空间
++ void deallocate(pointer p,size_type n) 归还先前配置的空间
++ void construct(pointer p, const_reference val) 构造函数 将p构造成t类型,并赋初值val
++ void destroy(pointer p) 析构p
++ max_size() 返回可配置的最大量
++ template <typename U>struct rebine 以相同方法分配U类型
 
 此外还有type等,详见[http://www.cplusplus.com/reference/memory/allocator/?kw=allocator](http://www.cplusplus.com/reference/memory/allocator/?kw=allocator)
 
@@ -188,6 +189,6 @@ free-list[16],存储各区块首地址.</br>
 
 * * *
     
-+一级空间配置器程序：[https://github.com/MemoriesOff/marrySTL/blob/master/allocator.h](https://github.com/MemoriesOff/marrySTL/blob/master/allocator.h)
-+二级空间配置器程序：[https://github.com/MemoriesOff/marrySTL/blob/master/alloc.h](https://github.com/MemoriesOff/marrySTL/blob/master/alloc.h)
++ 一级空间配置器程序：[https://github.com/MemoriesOff/marrySTL/blob/master/allocator.h](https://github.com/MemoriesOff/marrySTL/blob/master/allocator.h)
++ 二级空间配置器程序：[https://github.com/MemoriesOff/marrySTL/blob/master/alloc.h](https://github.com/MemoriesOff/marrySTL/blob/master/alloc.h)
 为说明方便，文章中程序段与整车程序略有不同。
