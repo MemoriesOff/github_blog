@@ -29,61 +29,22 @@ published: false
 
 将高频的基波与声音信号相乘产生最后驱动mos管的信号，为了保证mos始终处于完全开通或关断状态,基波信号整流为方波，声音信号也整流为方波，这样保证输出信号始终为方波。
 
+![](http://ifeve.com/wp-content/uploads/2013/06/overview-channels-buffers.png)
+
 电路如上图所示，其中8、7脚上的电阻和6脚上的电容来控制输出频率，rst脚控制波形的产生与否从而实现调制  
 
-555输出接三极管推挽输出增强带载能力，
+555输出接三极管推挽输出增强带载能力，驱动mos管通过隔离变压器驱动后极电路.
 
-#查找左右边沿
-从上一次的中点向左右两边扫，如果黑点的一定范围内黑点的个数满足要求，则判定该点为左右边线  
+其调制结果如下图所示,可看出为两不同方波的叠加,其中高频分量用于电离空气,低频分量用于产生振动,发出声音.
+
+![](http://ifeve.com/wp-content/uploads/2013/06/overview-channels-buffers.png)
+
+#变压器驱动电路
+
+如图所示,为单相半桥电压形逆变电路
+ 
+![](http://ifeve.com/wp-content/uploads/2013/06/overview-channels-buffers.png)
      
-程序以左侧为例：
-```c
-for(temp0=centre_lastblack;temp0>5;temp0--)               //检测左侧边沿
-{
-  if(point[temp0]>FAV)
-  {
-      continue;
-  }
-  for(temp1=temp0; temp1>( temp0-LINEWITH );temp1--)      //确认该点附近的黑点数是否满足要求
-  {    
-      if(point[temp1]<FAV)
-          leftcount++;
-  }    
-  if(leftcount >= LINEWITH-DEVIATION )                        //判断是否满足边沿条件
-  {
-    leftedge = temp0 ;                                  //满足条件边沿找到
-    leftflag=1;                                         //找到边沿，标志位置1 
-    break;
-  }
-  else
-  {
-    leftcount=0;                                        //未找到清除计数  
-    leftflag=0;                                         //未找到边沿，标志位置0
-    leftedge=5;                                         // 边沿赋值 
-  }
-   
-  if(leftedge<5) leftedge = 5;   
-} 
-```
-由于摄像头采集到的数据边沿不准确，故最低值为5.  
-     
-#中点计算  
 
-对中点计算分为以下三种情况：
-*左右均寻到
-*仅寻到左线与右线
-*左右线均未寻到
-对于左右都寻到的情况，相加取平均是一种最简单的方法。  
-    
-仅寻到左线与右线时，以寻到的线的位置为基准，加减线宽的一半。
 
-左右线都未寻到，默认上次中值  
-
-值得说明的是，上述中点计算仅针对正常双线情况，对于存在赛道元素干扰的情况参见。
-    
-* * *
-    
-整车程序：[https://github.com/MemoriesOff/Freescale](https://github.com/MemoriesOff/Freescale)
-
-为说明方便，文章中程序段与整车程序略有不同。
       
