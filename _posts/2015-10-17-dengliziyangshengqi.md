@@ -16,12 +16,12 @@ published: false
 
 #变压器的频率特性 
 
-*当输入电压固定时，频率越低，铁心越容易饱和，输出电压越低  
-*变压器线圈相当于电感，频率越高，感抗越大，漏抗压降变大，输出电压降低   
+*  当输入电压固定时，频率越低，铁心越容易饱和，输出电压越低  
+*  变压器线圈相当于电感，频率越高，感抗越大，漏抗压降变大，输出电压降低   
 
 综合上述两点，其频率-电压关系如图。  
 
-![](http://ifeve.com/wp-content/uploads/2013/06/overview-channels-buffers.png)
+![](/static/img/fre-v.png)
 
 为了减少能量的浪费，获得最高的电压，我们选取图中最高点所对应的频率作为调制时的基波频率。
 
@@ -29,7 +29,7 @@ published: false
 
 将高频的基波与声音信号相乘产生最后驱动mos管的信号，为了保证mos始终处于完全开通或关断状态,基波信号整流为方波，声音信号也整流为方波，这样保证输出信号始终为方波。
 
-![](http://ifeve.com/wp-content/uploads/2013/06/overview-channels-buffers.png)
+![](/static/img/555.png)
 
 电路如上图所示，其中8、7脚上的电阻和6脚上的电容来控制输出频率，rst脚控制波形的产生与否从而实现调制  
 
@@ -37,13 +37,13 @@ published: false
 
 其调制结果如下图所示,可看出为两不同方波的叠加,其中高频分量用于电离空气,低频分量用于产生振动,发出声音.
 
-![](http://ifeve.com/wp-content/uploads/2013/06/overview-channels-buffers.png)
+![](/static/img/tiaozhijieguo.jpg)
 
 #变压器驱动电路
 
-如图所示,为单相半桥电压形逆变电路
+如图所示,为单相半桥电压形逆变电路,当电流过大时,可以考虑多个mos管并联.
  
-![](http://ifeve.com/wp-content/uploads/2013/06/overview-channels-buffers.png)
+![](/static/img/bianyaqi.png)
      
 
 
