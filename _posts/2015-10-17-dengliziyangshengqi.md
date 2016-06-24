@@ -3,7 +3,7 @@ layout: post
 title: 等离子扬声器的制作
 tags:  逆变电路 等离子扬声器
 categories: 物理实验竞赛
-published: false
+//published: false
 ---
 
 等离子扬声器的基本原理是用高压产生电弧电离空气,并驱动电离的空气振动从而发声的装置.主要由信号发生与调制电路、逆变电路、高频高压变压器等组成
