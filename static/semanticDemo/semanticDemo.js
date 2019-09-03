@@ -24,7 +24,7 @@ var inputSizeWidth=document.getElementById('inputSize-width');
 var inputSizeHeight=document.getElementById('inputSize-height');				
 
 
-var network=new SemanticSegmentation("web_model/model.json",[512,512]);
+var network=new SemanticSegmentation("../static/semanticDemo/web_model/model.json",[512,512]);
 var colorMap=[[155,155,200],[174,199,232],[255,127,14],[255,187,120],[44,160,44],[152,223,138],[214,39,40],[255,152,150],[148,103,189],[197,176,213],[140,86,75],[196,156,148],[227,119,194],[247,182,210],[127,127,127],[31,119,180],[188,189,34],[219,219,141],[23,190,207],[158,218,229],[199,199,199]];
 network.load().then(()=>{
 	stateOutput.innerHTML="models loading success";
@@ -51,14 +51,14 @@ inputImg.onload=function(){
 }
 
 inputFileAddress.onchange = function () {
-	//1.»ñÈ¡Ñ¡ÖĞµÄÎÄ¼şÁĞ±í
+	//1.è·å–é€‰ä¸­çš„æ–‡ä»¶åˆ—è¡¨
 	var fileList = inputFileAddress.files;
 	var file = fileList[0];
-	//¶ÁÈ¡ÎÄ¼şÄÚÈİ
+	//è¯»å–æ–‡ä»¶å†…å®¹
 	var reader = new FileReader();
 	reader.readAsDataURL(file);
 	reader.onload = function (e) {
-		//½«½á¹ûÏÔÊ¾µ½ÎÄ±¾¿ò
+		//å°†ç»“æœæ˜¾ç¤ºåˆ°æ–‡æœ¬æ¡†
 		imgUrl.value=inputFileAddress.value;
 		//showCanvas(reader.result);
 		inputImg.src = reader.result;
@@ -109,8 +109,8 @@ runButton.onclick=async function(){
 				label_ctx.beginPath()
 				label_ctx.font = outputLabel.width/16*2+"px serif";
 				label_ctx.fillStyle='#fff';		
-				label_ctx.textAlign='center';//ÎÄ±¾Ë®Æ½¶ÔÆë·½Ê½
-				label_ctx.textBaseline='middle';//ÎÄ±¾´¹Ö±·½Ïò£¬»ùÏßÎ»ÖÃ 								
+				label_ctx.textAlign='center';//æ–‡æœ¬æ°´å¹³å¯¹é½æ–¹å¼
+				label_ctx.textBaseline='middle';//æ–‡æœ¬å‚ç›´æ–¹å‘ï¼ŒåŸºçº¿ä½ç½® 								
 				label_ctx.fillText(network.class_names[i], outputLabel.width/2, g+outputLabel.width/32*9);
 				g=g+outputLabel.width/4*3;								
 							
