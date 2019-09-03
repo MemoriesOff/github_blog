@@ -1,0 +1,196 @@
+<html>
+	<head>
+		<title> mobilenet semantic segmentation </title>
+        <link rel="stylesheet" href="../static/semanticDemo/bulma.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="section">
+			    <div class="tile is-ancestor flex-should-wrap space-evenly">
+				    <div class="tile is-parent is-8 min-content" >
+				        <div class="tile is-child">
+					        <article class="message">
+					            <div class="message-header">
+						            <h1>Control broad</h1>
+					            </div>
+								<div class="message-body">	
+									<div class="field is-horizontal has-addons">
+										<div class="file is-middle">
+										  <label class="file-label">
+											<input class="file-input" type="file" name="image" id="upload-image" />
+											<span class="file-cta">
+											  <span class="file-label">
+												Select File
+											  </span>
+											</span>
+										  </label>
+										</div>
+										<input class="input" type="text" placeholder="Image Url" id="image-url">
+									</div >									
+									<div class="field is-horizontal ">For best performance, upload images with animals (humans, horses) or objects (boats, cars) </div>
+									<div class="columns is-flex-centered">						    
+									    <div class="column">
+										<div class="card large">
+										    <header class="card-header ">
+													<p class="card-header-title">
+														Network Type
+													</p>	
+											</header>
+										  <div class="card-content">
+											<div class="content">												    
+												<div class="control" style="text-align:center">
+													<div class="select">
+														<select id="fcn-type">
+															<option value="fcn16">Fcn-16</option>
+															<option selected value="fcn32">Fcn-32</option>
+														</select>
+													</div>
+												</div>													
+											</div>
+										  </div>	  
+										</div>
+									  </div>
+									  <div class="column">
+										<div class="card large">
+											<header class="card-header ">
+												<p class="card-header-title">
+													Input Size
+												</p>
+											</header>
+										    <div class="card-content">
+												<div class="content">
+												    <div class="field-body">
+														<div class="field has-addons">
+														  <p class="control">
+															<input class="input " type="number" placeholder="width" value=512 id="inputSize-width">
+														  </p>
+														</div>
+														<div class="field">													  
+														     <label class="label" style="margin-top:5px">X</label>
+															
+														</div>
+														<div class="field">
+														  <p class="control">
+															<input class="input" type="number" placeholder="height" value=512 id="inputSize-height">
+														  </p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									  </div>
+									  <div class="column">
+										<div class="card large">
+											<header class="card-header ">
+												<p class="card-header-title">
+													Button
+												</p>
+											</header>
+										    <div class="card-content">
+												<div class="content ">
+												    <div class="field-body">
+														<div class="field">
+														  <p class="control">
+															<a class="button is-primary is-loading" id="run-button">
+															  &nbsp;Run&nbsp;
+															</a>
+														  </p>
+														</div>
+														<div class="field">
+														    <p class="control">
+															  <a class="button is-warning" id="reset-button" onclick="javascript:location.reload();">
+																  Reset
+															  </a>
+														    </p>
+														</div>
+													
+													</div>
+												</div>
+											</div>
+										</div>
+									  </div>
+									</div>
+									<div class="field is-horizontal ">
+										<span class="is-inline-flex no-breaks">
+											<b class="m-r-sm">Status:</b>
+											<span >&nbsp;&nbsp;</span>
+											<span id="status-message">Loading models...</span>
+										</span>										
+									</div>
+								  </div>
+					</article>
+				  </div>
+				</div>
+			    <div class="tile is-parent is-4">
+					<div class="tile is-child card large is-invisible" id="input-card">
+					  <header class="card-header">
+						<p class="card-header-title">
+						  Input image
+						</p>
+					  </header>
+					  <div class="card-content">
+						<figure class="image">
+						  <img alt="Input image" id="input-image"  />
+						</figure>
+					  </div>
+					</div>
+				</div>
+			  </div>
+			  <div class="tile is-ancestor">
+				<div class="tile is-horizontal">
+				  <div class="tile is-parent is-10">
+					<div class="tile is-child card large is-invisible" id="output-card">
+					  <header class="card-header">
+						<p class="card-header-title">
+						  Segmentation map
+						</p>
+					  </header>
+					  <div class="card-content">
+						<figure class="image">
+						   <img id="input-image-large"  style="z-index:-1;position:absolute"/> 
+						   <canvas alt="output image" id="output-image">
+						</figure>
+					  </div>
+					</div>
+				  </div>
+				  <div class="tile is-parent">
+					<div class="tile is-child card large is-invisible" id="legend-card">
+					  <header class="card-header">
+						<p class="card-header-title">
+						  Legend
+						</p>
+					  </header>
+					  <div class="card-content">
+						<div id="legend" class="columns is-multiline">
+							<canvas alt="output label" id="output-label"  style="width:100%"/> -
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	    <footer class="footer">
+		  <div class="container">
+			<div class="content has-text-centered">
+			  <p>
+			    This page is a demo of XXXXXXX. You can get more information at here.<br>
+				The project is derived from <a href="https://github.com/tensorflow/tfjs-models/tree/master/body-pix"> body-pix </a> and <a href="https://github.com/hailotech/seg-mentor">seg-mentor</a> <br>
+				Written by <a href="https://github.com/MemoriesOff">MemoriesOff</a>. The source code is licensed
+				<a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a> and the model
+				is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+			  </p>
+			</div>
+		  </div>
+		</footer>  
+	
+
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0"></script>
+		<script src="../static/semanticDemo/util.js"></script>
+		<script src="../static/semanticDemo/ModelWeights.js"></script>
+		<script src="../static/semanticDemo/mobileNet.js"></script>
+		<script src="../static/semanticDemo/semanticSegmentation.js"></script>
+		<script src="../static/semanticDemo/semanticDemo.js"></script>
+	</body>
+</html>
