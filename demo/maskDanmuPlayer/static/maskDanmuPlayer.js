@@ -155,7 +155,7 @@
 					}
 				}
 				maskLayerCTX.putImageData(maskLayerImageDate,0, 0);					
-				danmuLayer.style.webkitMaskImage="url("+maskLayer.toDataURL("svg")+")";
+				danmuLayer.style.webkitMaskImage="url("+maskLayer.toDataURL("image/png",0.25)+")";
 				if(player.defaults.testcanva!=null){
 					var imgData=ctx.getImageData(0, 0, player.defaults.width, player.defaults.height);
 
