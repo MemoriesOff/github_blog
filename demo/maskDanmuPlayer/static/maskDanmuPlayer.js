@@ -171,8 +171,8 @@
 							}
 						}
 					}
-					
-					ctx.putImageData(imgData,0, 0);
+					ctx.drawImage(maskLayer, 0, 0,  player.defaults.width, player.defaults.height)
+					//ctx.putImageData(imgData,0, 0);
 				}
 
 				maskLayerCTX.putImageData(maskLayerImageDate,0, 0);	
