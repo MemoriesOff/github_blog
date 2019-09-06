@@ -1,0 +1,55 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>maskdanmuplayer</title>
+	<link rel="stylesheet" href="/static/maskDanmuPlayer.css"/>
+	<style>
+		.footer{
+			text-align:center;
+		}
+		.footer a{
+			text-decoration : none
+		}
+		.footer a:visited{
+			color:#0000EE;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="player" style="margin:50px auto;position:relative"></div>
+	<div style="text-align:center"><canvas id="myCanvas" width="800" height="450"</canvas></div>
+	<div class="footer" style="text-align:center">
+		<p>
+			    This page is a demo of <a href="https://github.com/MemoriesOff/browser-semantic-segmentation">browser-semantic-segmentation.</a>
+			    You can get more information at <a href="https://github.com/MemoriesOff/browser-semantic-segmentation/blob/master/README.md"> here</a>.<br>
+				Written by <a href="https://github.com/MemoriesOff">MemoriesOff</a>. The program is licensed
+				<a href="http://opensource.org/licenses/mit-license.php">MIT</a>.<br><br>
+			  </p>
+	</div>
+	<script src="//cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script>
+	<script src="static/jquery-2.1.4.min.js"></script>
+  <script src="static/CommentCoreLibrary.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0"></script>
+	<script src="../../static/semanticDemo/util.js"></script>
+	<script src="../../static/semanticDemo/ModelWeights.js"></script>
+	<script src="../../static/semanticDemo/mobileNet.js"></script>
+	<script src="../../static/semanticDemo/SemanticSegmentation.js"></script>
+    <script src="../../static/semanticDemo/maskDanmuPlayer.js"></script>
+	<script>	
+		var canva=document.getElementById("myCanvas");
+		window.onload=()=>{$('#player').H5Player(
+			{
+				width: "800" ,
+        height: "450", 
+				src:"/static/tokyo2020.mp4",
+				comments:"/static/tokyo2020.xml",
+				modelAddress:"../../static/semanticDemo/web_model2/model.json",
+				testcanva:canva
+			
+			}
+		);};
+	</script>
+	<script>eruda.init();</script>
+</body>
+</html>
