@@ -113,6 +113,14 @@
 			if(!video.paused&&isModelLoad&&isDanmuOn&&isNetworkOn){				
 				console.time()					
 				var netOutput;
+				var canva;
+				var ctx;
+				if(player.defaults.testcanva!=null){
+				        canva=player.defaults.testcanva;
+					ctx=canva.getContext('2d');	 
+					ctx.clearRect(0, 0,  player.defaults.width, player.defaults.height);
+					ctx.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
+				}
 				if(isFcn32On){
 					network.modelPixels=[288,512];
 					netOutput=await network.predict(video,false,true).data();
@@ -149,10 +157,6 @@
 				maskLayerCTX.putImageData(maskLayerImageDate,0, 0);					
 				danmuLayer.style.webkitMaskImage="url("+maskLayer.toDataURL("svg")+")";
 				if(player.defaults.testcanva!=null){
-					var canva=player.defaults.testcanva;//document.getElementById("myCanvas");
-					var ctx=canva.getContext('2d');	 
-					ctx.clearRect(0, 0,  player.defaults.width, player.defaults.height);
-					ctx.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
 					var imgData=ctx.getImageData(0, 0, player.defaults.width, player.defaults.height);
 
 					if(isFcn32On){
