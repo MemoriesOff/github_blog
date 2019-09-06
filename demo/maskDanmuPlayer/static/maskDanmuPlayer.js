@@ -177,7 +177,7 @@
 				console.timeEnd()	
 				
 			}else{
-				if(isDanmuOn&&isNetworkOn)
+				if((!isDanmuOn)||(!isNetworkOn))
 					danmuLayer.style.webkitMaskImage=null;
 			}
 			requestAnimationFrame(maskLayerPercess);
