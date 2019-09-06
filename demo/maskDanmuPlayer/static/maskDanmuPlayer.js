@@ -24,7 +24,7 @@
 		var networkOffButton=$($(controlBoard).children(".line").get(0)).children(".button").get(1);
 		var fcn32OnButton=$($(controlBoard).children(".line").get(1)).children(".button").get(0);
 		var fcn32OffButton=$($(controlBoard).children(".line").get(1)).children(".button").get(1);
-		danmuLayer.style.webkitMaskSize="cover";
+		//danmuLayer.style.webkitMaskSize="cover";
 		var maskLayer=videodiv.children(".mask-layer").get(0);
 		var maskLayerCTX=maskLayer.getContext('2d');
 		videodiv.append("<div class=\"time-reminding\">12:12</div>");
@@ -151,7 +151,7 @@
 					var canva=player.defaults.testcanva;//document.getElementById("myCanvas");
 					var ctx=canva.getContext('2d');	 
 					ctx.clearRect(0, 0,  player.defaults.width, player.defaults.height);
-					ctx.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
+					/*ctx.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
 					var imgData=ctx.getImageData(0, 0, player.defaults.width, player.defaults.height);
 
 					if(isFcn32On){
@@ -170,7 +170,7 @@
 							   imgData.data[4*i+3]=100;									   
 							}
 						}
-					}
+					}*/
 					ctx.drawImage(maskLayer, 0, 0,  player.defaults.width, player.defaults.height)
 					//ctx.putImageData(imgData,0, 0);
 				}
