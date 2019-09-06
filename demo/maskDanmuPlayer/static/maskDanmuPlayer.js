@@ -185,12 +185,12 @@
 			}else{
 				danmuLayer.style.webkitMaskImage=null;
 			}
-			requestAnimationFrame(maskLayerPercess);
+			//requestAnimationFrame(maskLayerPercess);
 		}
 		
 		
-		maskLayerPercess()
-		//setTimeout(()=>{setInterval(function () {maskLayerPercess()},1000);}, 2000 );
+		//maskLayerPercess()
+		setTimeout(()=>{setInterval(function () {maskLayerPercess()},1000);}, 2000 );
 		
 		//播放暂停事件
 		var playPause=function(){
