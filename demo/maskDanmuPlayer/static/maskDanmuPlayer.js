@@ -146,12 +146,13 @@
 						}
 					}
 				}
-				
+				maskLayerCTX.putImageData(maskLayerImageDate,0, 0);					
+				danmuLayer.style.webkitMaskImage="url("+maskLayer.toDataURL("svg")+")";
 				if(player.defaults.testcanva!=null){
 					var canva=player.defaults.testcanva;//document.getElementById("myCanvas");
 					var ctx=canva.getContext('2d');	 
 					ctx.clearRect(0, 0,  player.defaults.width, player.defaults.height);
-					/*ctx.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
+					ctx.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
 					var imgData=ctx.getImageData(0, 0, player.defaults.width, player.defaults.height);
 
 					if(isFcn32On){
@@ -170,27 +171,21 @@
 							   imgData.data[4*i+3]=100;									   
 							}
 						}
-					}*/
-					ctx.drawImage(maskLayer, 0, 0,  player.defaults.width, player.defaults.height)
-					//ctx.putImageData(imgData,0, 0);
+					}
+					ctx.putImageData(imgData,0, 0);
 				}
-
-				maskLayerCTX.putImageData(maskLayerImageDate,0, 0);	
-
-				
-				
-				danmuLayer.style.webkitMaskImage="url("+maskLayer.toDataURL("svg")+")"
 				console.timeEnd()	
 				
 			}else{
-				danmuLayer.style.webkitMaskImage=null;
+				if(isDanmuOn&&isNetworkOn)
+					danmuLayer.style.webkitMaskImage=null;
 			}
-			//requestAnimationFrame(maskLayerPercess);
+			requestAnimationFrame(maskLayerPercess);
 		}
 		
 		
-		//maskLayerPercess()
-		setTimeout(()=>{setInterval(function () {maskLayerPercess()},1000);}, 2000 );
+		maskLayerPercess();
+		//setTimeout(()=>{setInterval(function () {maskLayerPercess()},1000);}, 2000 );
 		
 		//播放暂停事件
 		var playPause=function(){
