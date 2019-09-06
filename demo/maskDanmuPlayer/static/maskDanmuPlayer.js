@@ -121,7 +121,7 @@
 					netOutput=await network.predict(video,true,false).data();						
 				}			
 				maskLayerCTX.clearRect(0, 0, player.defaults.width, player.defaults.height);
-				maskLayerCTX.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
+				//maskLayerCTX.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
 				maskLayerCTX.fillStyle="#000000";
 				maskLayerCTX.fillRect(0,0,player.defaults.width,player.defaults.height);
 				var maskLayerImageDate=maskLayerCTX.getImageData(0, 0, player.defaults.width ,player.defaults.height);												
@@ -259,7 +259,7 @@
 			isControlBoardIn=false;
 		});
 		var isNetworkOn=true;
-		var isFcn32On=true;
+		var isFcn32On=false;
 		$(networkOffButton).css("background","#5C5C5C");
 		networkOnButton.onclick=()=>{
 			$(networkOffButton).css("background","#5C5C5C")
@@ -271,7 +271,7 @@
 			$(networkOffButton).css("background","#00A1D6")
 			isNetworkOn=false;
 		};
-		$(fcn32OffButton).css("background","#5C5C5C")
+		$(fcn32OnButton).css("background","#5C5C5C")
 		fcn32OnButton.onclick=()=>{
 			$(fcn32OffButton).css("background","#5C5C5C")
 			$(fcn32OnButton).css("background","#00A1D6")
