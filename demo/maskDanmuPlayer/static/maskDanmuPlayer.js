@@ -115,12 +115,6 @@
 				var netOutput;
 				var canva;
 				var ctx;
-				if(player.defaults.testcanva!=null){
-				        canva=player.defaults.testcanva;
-					ctx=canva.getContext('2d');	 
-					ctx.clearRect(0, 0,  player.defaults.width, player.defaults.height);
-					ctx.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
-				}
 				if(isFcn32On){
 					network.modelPixels=[288,512];
 					netOutput=await network.predict(video,false,true).data();
@@ -129,34 +123,32 @@
 					netOutput=await network.predict(video,true,false).data();						
 				}			
 				maskLayerCTX.clearRect(0, 0, player.defaults.width, player.defaults.height);
-				//maskLayerCTX.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
 				maskLayerCTX.fillStyle="#000000";
 				maskLayerCTX.fillRect(0,0,player.defaults.width,player.defaults.height);
 				var maskLayerImageDate=maskLayerCTX.getImageData(0, 0, player.defaults.width ,player.defaults.height);												
 				if(isFcn32On){
 					for(var i=0;i<netOutput.length;i++){
 						if(netOutput[i]==15) //0.85
-						{						  			
-						   maskLayerImageDate.data[4*i+0]=255;
-						   maskLayerImageDate.data[4*i+1]=255;
-						   maskLayerImageDate.data[4*i+2]=255;
+						{
 						   maskLayerImageDate.data[4*i+3]=0;								   
 						}
 					}
 				}else{
 					for(var i=0;i<netOutput.length;i++){
 						if(netOutput[i]>0.85) //0.85
-						{									
-						   maskLayerImageDate.data[4*i+0]=255;
-						   maskLayerImageDate.data[4*i+1]=255;
-						   maskLayerImageDate.data[4*i+2]=255;
+						{
 						   maskLayerImageDate.data[4*i+3]=0;								   
 						}
 					}
 				}
 				maskLayerCTX.putImageData(maskLayerImageDate,0, 0);					
-				danmuLayer.style.webkitMaskImage="url("+maskLayer.toDataURL("image/png")+")";
+				//danmuLayer.style.webkitMaskImage="url("+maskLayer.toDataURL("image/png")+")";
+				$(danmuLayer).css("-webkit-mask-image","url("+maskLayer.toDataURL("image/png",0.5)+")")
 				if(player.defaults.testcanva!=null){
+					canva=player.defaults.testcanva;
+					ctx=canva.getContext('2d');	 
+					ctx.clearRect(0, 0,  player.defaults.width, player.defaults.height);
+					ctx.drawImage(video, 0, 0,  player.defaults.width, player.defaults.height);
 					var imgData=ctx.getImageData(0, 0, player.defaults.width, player.defaults.height);
 
 					if(isFcn32On){
